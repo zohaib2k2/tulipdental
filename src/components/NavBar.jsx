@@ -1,10 +1,13 @@
 
 import React, { useState, useEffect } from 'react';
-import { Phone, MapPin, Mail, Clock } from 'lucide-react';
+import { Phone, MapPin, Mail, Clock, Menu} from 'lucide-react';
 
 const NavBar = () => {
 const [isVisible, setIsVisible] = useState(true);
 const [lastScrollY, setLastScrollY] = useState(0);
+const [isOpen, setIsOpen] = useState(false);
+
+const toggleMenu = () => {setIsOpen(!isOpen)};
 
 useEffect(() => {
     const handleScroll = () => {
@@ -70,9 +73,9 @@ useEffect(() => {
     </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-[#FFFEF6]">
           <div className="flex items-center justify-between h-16">
-            <div className="flex-shrink-0 flex items-center gap-2">
-              <img src="/Modern_Dental_Care_Logo2.svg" alt="HealthCare Logo" className="h-16 w-16" />
-              <h1 className="text-2xl font-bold text-blue-600">Bergschenhoek Dental </h1>
+            <div className=" flex items-center gap-2">
+              <img src="/navbar_logo2.png" alt="HealthCare Logo" className="h-16 w-54" />
+              {/* <h1 className="text-2xl font-bold text-blue-600">Bergschenhoek Dental </h1> */}
             </div>
             
             <div className="hidden md:flex items-center space-x-1">
@@ -86,11 +89,12 @@ useEffect(() => {
               ))}
             </div>
 
-            <button className="md:hidden p-2">
+            <button className="md:hidden p-2" onClick={toggleMenu}>
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
               </svg>
             </button>
+            
           </div>
         </div>
       </nav>

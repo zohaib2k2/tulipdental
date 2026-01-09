@@ -89,7 +89,7 @@ const Treatment = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white flex items-center justify-center p-8">
+    <div className="min-h-screen bg-white flex items-center justify-center p-3 md:p-8">
       <div className="w-full max-w-7xl">
         {/* Header Section */}
         <div className="mb-12">
@@ -112,7 +112,7 @@ const Treatment = () => {
               {treatments.map((treatment) => (
                 <div
                   key={treatment.id}
-                  className="min-w-[25%] px-3"
+                  className="min-w-[100%] md:min-w-[25%] px-3"
                   style={{ flex: '0 0 25%' }}
                 >
                   <div className="relative overflow-hidden rounded-2xl shadow-lg group cursor-pointer">

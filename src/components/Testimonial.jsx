@@ -82,7 +82,7 @@ const TestimonialSlider = () => {
                 {testimonials.map((testimonial) => (
                   <div
                     key={testimonial.id}
-                    className="min-w-[50%] px-4"
+                    className="min-w-[100%] md:win-w-[50%] px-4"
                     style={{ flex: '0 0 50%' }}
                   >
                     <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 h-full min-h-[320px] flex flex-col">
