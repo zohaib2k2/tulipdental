@@ -1,5 +1,5 @@
 {
-  "homepage": "zohaib2k2.github.io/dental",
+  "homepage": "https://zohaib2k2.github.io/Bergschenhoek-Dental",
   "name": "van-alphen-website",
   "private": true,
   "version": "0.0.0",
@@ -9,8 +9,8 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d dist",
+    "predeploy": "npm run build"
   },
   "dependencies": {
     "lucide-react": "^0.556.0",
