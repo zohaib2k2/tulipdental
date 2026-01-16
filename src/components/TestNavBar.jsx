@@ -1,13 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { Phone, MapPin, Mail, Clock, Menu, X } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
+
 
 export default function TestNavBar() {
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
-  
+
   const toggleMenu = () => {
     setIsOpen(!isOpen);
+  };
+
+  const { language, setLanguage } = useLanguage();
+  const switchLanguage = () => {
+  setLanguage(language === 'nl' ? 'en' : 'nl');
   };
   
   useEffect(() => {
@@ -35,7 +42,24 @@ export default function TestNavBar() {
     'Blog',
     'Appointments'
   ];
-  
+  const lang_navItems = {
+    nl: [
+      'Bedrijf',
+      'Onze Vestigingen',
+      'Onze Behandelingen',
+      'Onze Artsen',
+      'Blog',
+      'Afspraken'
+    ],
+    en: [
+      'Corporate',
+      'Our Branches',
+      'Our Treatments',
+      'Our Doctors',
+      'Blog',
+      'Appointments'
+    ]
+  };
   return (
     <div className="bg-gray-50">
       <nav
@@ -78,7 +102,7 @@ export default function TestNavBar() {
             
             {/* Desktop Menu */}
             <div className="hidden md:flex items-center space-x-1">
-              {navItems.map((item, index) => (
+              {lang_navItems[language].map((item, index) => (
                 <button
                   key={index}
                   className="px-4 py-2 text-gray-700 hover:text-blue-600 transition-colors duration-200 text-sm font-medium"
@@ -87,7 +111,52 @@ export default function TestNavBar() {
                 </button>
               ))}
             </div>
-            
+            {/* <button
+            onClick={() => setLanguage('nl')}
+            className={`px-5 py-1 rounded font-medium ${
+              language === 'nl' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700'
+            }`}
+          >
+            NL
+          </button>
+          <button
+            onClick={() => setLanguage('en')}
+            className={`px-5 py-1 rounded font-medium ${
+              language === 'en' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700'
+            }`}
+          >
+            EN
+          </button> */}
+           {/* <button
+            onClick={switchLanguage}
+            className="relative w-16 h-8 bg-gray-300 rounded-full transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+            style={{ backgroundColor: language === 'dutch' ? '#3b82f6' : '#d1d5db' }}
+          >
+            <div
+              className="absolute top-1 left-1 w-6 h-6 bg-white rounded-full shadow-md transition-transform duration-300"
+              style={{ transform: language === 'dutch' ? 'translateX(32px)' : 'translateX(0)' }}
+            />
+          </button> */}
+          <div className="flex items-center justify-center gap-3">
+          <span className={`text-sm font-medium ${language === 'en' ? 'text-blue-600' : 'text-gray-400'}`}>
+            English
+          </span>
+          
+          <button
+            onClick={switchLanguage}
+            className="relative w-16 h-8 bg-gray-300 rounded-full transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+            style={{ backgroundColor: language === 'nl' ? '#3b82f6' : '#d1d5db' }}
+          >
+            <div
+              className="absolute top-1 left-1 w-6 h-6 bg-white rounded-full shadow-md transition-transform duration-300"
+              style={{ transform: language === 'nl' ? 'translateX(32px)' : 'translateX(0)' }}
+            />
+          </button>
+          
+          <span className={`text-sm font-medium ${language === 'nl' ? 'text-blue-600' : 'text-gray-400'}`}>
+            Dutch
+          </span>
+        </div>
             {/* Mobile Menu Button */}
             <button 
               className="md:hidden p-2 hover:bg-gray-100 rounded-lg transition-colors" 

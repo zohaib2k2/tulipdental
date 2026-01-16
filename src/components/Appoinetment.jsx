@@ -1,9 +1,26 @@
 import {React, useState} from 'react'
 import { Calendar, CheckCircle, AlertCircle, Loader } from 'lucide-react';
+import { useLanguage } from "../context/LanguageContext"
 
 
 const Appoinetment = () => {
-    const [formData, setFormData] = useState({
+
+  const { language } = useLanguage();
+  const lang_appointmentText = {
+    nl: {
+      heading: " AFSPRAAK AANVRAGEN",
+      title: "AFSPRAAK AANVRAGEN",
+      description: "Vul het onderstaande formulier in en wij nemen spoedig contact met u op.",
+      successMessage: "Uw afspraak is succesvol gepland. We nemen spoedig contact met u op."
+    },
+    en: {
+      heading: "REQUEST AN APPOINTMENT",
+      title: "REQUEST AN APPOINTMENT",
+      description: "Fill out the form below and we'll get back to you shortly.",
+      successMessage: "Your appointment has been successfully scheduled. We will get back to you shortly."
+    }
+  };
+  const [formData, setFormData] = useState({
     fullName: '',
     email: '',
     phone: '',
@@ -75,10 +92,10 @@ const Appoinetment = () => {
               <Calendar className="w-8 h-8 text-white" />
             </div>
             <h1 className="text-3xl font-bold text-gray-800 mb-2">
-              Request for an Appointment
+              {lang_appointmentText[language].title}
             </h1>
             <p className="text-gray-600">
-              Fill out the form below and we'll get back to you shortly
+              {lang_appointmentText[language].description}
             </p>
           </div>
 
@@ -87,9 +104,9 @@ const Appoinetment = () => {
             <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg flex items-start">
               <CheckCircle className="w-5 h-5 text-green-600 mr-3 mt-0.5 flex-shrink-0" />
               <div>
-                <h3 className="font-semibold text-green-800">Success!</h3>
+                <h3 className="font-semibold text-green-800">{language === 'nl' ? 'Succes!' : 'Success!'}</h3>
                 <p className="text-green-700 text-sm">
-                  Your appointment has been scheduled. We'll contact you soon to confirm.
+                  {lang_appointmentText[language].successMessage}
                 </p>
               </div>
             </div>
@@ -110,7 +127,8 @@ const Appoinetment = () => {
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
               <label className="block text-gray-700 mb-2 font-medium">
-                Full Name <span className="text-red-500">*</span>
+                {language === 'nl' ? 'Volledige naam' : 'Full Name'}
+                <span className="text-red-500">*</span>
               </label>
               <input 
                 type="text"
@@ -119,13 +137,14 @@ const Appoinetment = () => {
                 onChange={handleChange}
                 required
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
-                placeholder="Enter your name"
+                placeholder={language === 'nl' ? 'Voer uw volledige naam in' : 'Enter your full name'}
               />
             </div>
 
             <div>
               <label className="block text-gray-700 mb-2 font-medium">
-                Email <span className="text-red-500">*</span>
+                {language === 'nl' ? 'E-mail' : 'Email'}
+                <span className="text-red-500">*</span>
               </label>
               <input 
                 type="email"
@@ -134,13 +153,14 @@ const Appoinetment = () => {
                 onChange={handleChange}
                 required
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
-                placeholder="Enter your email"
+                placeholder={language === 'nl' ? 'Voeg uw e-mailadres toe' : 'Enter your email'}
               />
             </div>
 
             <div>
               <label className="block text-gray-700 mb-2 font-medium">
-                Phone <span className="text-red-500">*</span>
+                {language === 'nl' ? 'Telefoonnummer' : 'Phone'}
+                <span className="text-red-500">*</span>
               </label>
               <input 
                 type="tel"
@@ -149,13 +169,13 @@ const Appoinetment = () => {
                 onChange={handleChange}
                 required
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
-                placeholder="Enter your phone number"
+                placeholder={language === 'nl' ? 'Voer uw telefoonnummer in' : 'Enter your phone number'}
               />
             </div>
 
             <div>
               <label className="block text-gray-700 mb-2 font-medium">
-                Preferred Date <span className="text-red-500">*</span>
+                {language === 'nl' ? 'Voorkeursdatum' : 'Preferred Date'}
               </label>
               <input 
                 type="date"
@@ -170,7 +190,7 @@ const Appoinetment = () => {
 
             <div>
               <label className="block text-gray-700 mb-2 font-medium">
-                Message
+                {language === 'nl' ? 'Bericht' : 'Message'}
               </label>
               <textarea 
                 name="message"
@@ -178,7 +198,7 @@ const Appoinetment = () => {
                 onChange={handleChange}
                 rows={4}
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 resize-none"
-                placeholder="Tell us about your dental needs"
+                placeholder= {`${language === 'nl' ? 'Voeg hier uw bericht toe (optioneel)' : 'Add your message here (optional)'}`}
               />
             </div>
 
@@ -190,10 +210,10 @@ const Appoinetment = () => {
               {loading ? (
                 <>
                   <Loader className="w-5 h-5 mr-2 animate-spin" />
-                  Scheduling...
+                  {language === 'nl' ? 'Bezig met verzenden...' : 'Submitting...'}
                 </>
               ) : (
-                'Schedule Appointment'
+                language === 'nl' ? 'Afspraak plannen' : 'Schedule Appointment'
               )}
             </button>
           </form>

@@ -1,6 +1,5 @@
 import { MapPin, Phone, Mail, Clock } from 'lucide-react';
 import Appoinetment from './Appoinetment';
-import React from 'react'
 
 const Contact = () => {
   return (

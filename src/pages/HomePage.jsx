@@ -8,18 +8,19 @@ import Footer from '../components/Footer.jsx'
 import TestNavBar from '../components/TestNavBar.jsx'
 import Contact from '../components/Contact.jsx'
 
+
 const HomePage = () => {
   return (
-    <>
-    <TestNavBar/>
-    <Hero/>
-    <About/>
-    <TreatmentsSlider/>
-    <Testimonial/>
-    <OurTeamSection/>
-    <Contact/>
-    <Footer />
-    </>
+      <>
+      <TestNavBar/>
+      <Hero/>
+      <About/>
+      <TreatmentsSlider/>
+      <Testimonial/>
+      <OurTeamSection/>
+      <Contact/>
+      <Footer />
+      </>
   )
 }
 

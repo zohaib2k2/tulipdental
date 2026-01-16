@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { useLanguage } from '../context/LanguageContext';
+
 const OurTeamSection = () => {
   const teamMembers = [
     {
@@ -14,6 +16,20 @@ const OurTeamSection = () => {
     }
   ];
 
+  const lang_aboutText = {
+    nl: {
+      heading: "ONS TEAM",
+      title: "UW BETROUWBARE TANDARTS IN NOORDWIJKERHOUT",
+      description: "Het Dentist van Alphen team bestaat uit meerdere mondzorgprofessionals. Onze professionals hebben ervaring in diverse disciplines in de tandheelkunde zoals kindertandheelkunde, esthetische tandheelkunde en implantologie."
+    },
+    en: {
+      heading: "OUR TEAM",
+      title: "YOUR TRUSTED DENTIST IN NOORDWIJKERHOUT",
+      description: "The Dentist van Alphen team consists of several oral care professionals. Our professionals have experience in various disciplines in dentistry such as pediatric dentistry, aesthetic dentistry and implantology."
+    }
+  };
+
+  const { language } = useLanguage();
   return (
     <div className="min-h-screen bg-white flex items-center justify-center p-8">
       <div className="w-full max-w-7xl">
@@ -41,14 +57,16 @@ const OurTeamSection = () => {
 
           {/* Right Side - Content */}
           <div className="lg:pl-12">
-            <p className="text-sm text-blue-400 uppercase tracking-widest mb-3">OUR TEAM</p>
+            <p className="text-sm text-blue-400 uppercase tracking-widest mb-3">{lang_aboutText[language].heading}</p>
             <h1 className="text-5xl font-light text-gray-800 mb-6 leading-tight">
-              YOUR <span className="font-bold text-slate-900">TRUSTED</span><br/>
-              DENTIST IN<br/>
+              {lang_aboutText[language].title.split(' ')[0]} <span className="font-bold text-slate-900">
+                {lang_aboutText[language].title.split(' ').slice(1,3).join(' ')}
+                </span><br/>
+              {lang_aboutText[language].title.split(' ').slice(3, 4).join(' ')}<br/>
               <span className="font-bold text-slate-900">NOORDWIJKERHOUT</span>
             </h1>
             <p className="text-gray-600 text-lg mb-10 leading-relaxed">
-              The Dentist van Alphen team consists of several oral care professionals. Our professionals have experience in various disciplines in dentistry such as pediatric dentistry, aesthetic dentistry and implantology.
+              {lang_aboutText[language].description}
             </p>
             <button className="px-10 py-4 border-2 border-slate-800 text-slate-800 rounded-full font-bold hover:bg-slate-800 hover:text-white transition-all text-sm tracking-wide">
               VIEW OUR TEAM
