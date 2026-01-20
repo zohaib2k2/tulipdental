@@ -78,7 +78,7 @@ const Contact = () => {
               />
             </div>
           </div>
-          <div className="bg-gradient-to-br from-slate-50 to-blue-50 p-8 rounded-xl shadow-lg">
+          <div className="bg-gradient-to-br from-slate-50 to-blue-50 p-2 rounded-xl shadow-lg">
             <Appoinetment />
           </div>
         </div>

@@ -8,7 +8,7 @@ import Footer from '../components/Footer.jsx'
 import TestNavBar from '../components/TestNavBar.jsx'
 import Contact from '../components/Contact.jsx'
 
-import {scrollToSection} from '../utils/navscroll.js'
+
 const HomePage = () => {
   
 

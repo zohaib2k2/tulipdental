@@ -109,15 +109,15 @@ const Appoinetment = () => {
     }
 
     return (
-     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-12 px-4">
-      <div className="max-w-2xl mx-auto">
-        <div className="bg-white rounded-2xl shadow-xl p-8">
+     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+      <div className="mx-auto px-1 py-1 sm:px-6 lg:px-8">
+        <div className="bg-white rounded-2xl shadow-xl p-4 md:p-12">
           {/* Header */}
           <div className="text-center mb-8" id="appointment-form">
             <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-600 rounded-full mb-4">
               <Calendar className="w-8 h-8 text-white" />
             </div>
-            <h1 className="text-3xl font-bold text-gray-800 mb-2">
+            <h1 className="text-3xl font-bold text-gray-800 mb-2 inline-flex flex-flow-row items-center justify-center">
               {lang_appointmentText[language].title}
             </h1>
             <p className="text-gray-600">

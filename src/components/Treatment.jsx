@@ -12,6 +12,7 @@ import { useLanguage } from '../context/LanguageContext';
 const Treatment = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlay, setIsAutoPlay] = useState(true);
+  const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 768);
   const { language } = useLanguage();
 
   const treatments = [
@@ -73,8 +74,18 @@ const Treatment = () => {
     }
   ];
 
-  const cardsPerView = 4;
+  // onmobile show 1 card, on desktop show 4 cards
+  const cardsPerView = isDesktop ? 4 : 1;
   const maxIndex = treatments.length - cardsPerView;
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth >= 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   useEffect(() => {
     if (!isAutoPlay) return;
@@ -111,7 +122,9 @@ const Treatment = () => {
       <div className="w-full max-w-7xl">
         {/* Header Section */}
         <div className="mb-12">
-          <p className="text-sm text-gray-400 uppercase tracking-widest mb-2">TREATMENTS</p>
+          <p className="text-sm text-gray-400 uppercase tracking-widest mb-2">
+            {language === 'nl' ? 'Onze Behandelingen' : 'Our Treatments'}
+          </p>
           <h1 className="text-5xl font-light text-gray-800 mb-6">
             {lang_treatmentText[language].title.split(' ').splice(0, 2).join(' ')} <span className="font-bold">{lang_treatmentText[language].title.split(' ').slice(2).join(' ')}</span>
           </h1>
@@ -124,14 +137,14 @@ const Treatment = () => {
           {/* Slider Container */}
           <div className="overflow-hidden">
             <div 
-              className="flex transition-transform duration-700 ease-out"
+              className="flex transition-transform duration-500 md:duration-700 ease-out"
               style={{ transform: `translateX(-${currentIndex * (100 / cardsPerView)}%)` }}
             >
               {treatments.map((treatment) => (
                 <div
                   key={treatment.id}
-                  className="min-w-[100%] md:min-w-[25%] px-3"
-                  style={{ flex: '0 0 25%' }}
+                  className={`min-w-[100%] ${isDesktop ? 'md:min-w-[25%]' : ''} px-3`}
+                  style={{ flex: isDesktop ? '0 0 25%' : '0 0 100%' }}
                 >
                   <div className="relative overflow-hidden rounded-2xl shadow-lg group cursor-pointer">
                     <img 
@@ -152,22 +165,24 @@ const Treatment = () => {
           </div>
 
           {/* Navigation Arrows */}
-          <button
-            onClick={goToPrev}
-            className="absolute right-16 -bottom-20 bg-slate-800 hover:bg-slate-700 p-4 rounded-full shadow-lg transition-all hover:scale-110 z-10"
-          >
-            <ChevronLeft className="w-5 h-5 text-white" />
-          </button>
-          <button
-            onClick={goToNext}
-            className="absolute right-0 -bottom-20 bg-slate-800 hover:bg-slate-700 p-4 rounded-full shadow-lg transition-all hover:scale-110 z-10"
-          >
-            <ChevronRight className="w-5 h-5 text-white" />
-          </button>
+          <div className="flex justify-center gap-3 mt-8 mb-0">
+            <button
+              onClick={goToPrev}
+              className="bg-slate-800 hover:bg-slate-700 p-4 rounded-full shadow-lg transition-all hover:scale-110 z-10"
+            >
+              <ChevronLeft className="w-5 h-5 text-white" />
+            </button>
+            <button
+              onClick={goToNext}
+              className="bg-slate-800 hover:bg-slate-700 p-4  rounded-full shadow-lg transition-all hover:scale-110 z-10"
+            >
+              <ChevronRight className="w-5 h-5 text-white" />
+            </button>
+          </div>
         </div>
 
         {/* All Treatments Button */}
-        <div className="flex justify-center mt-16">
+        <div className="flex justify-center mt-8">
           <button className="px-10 py-4 border-2 border-slate-800 text-slate-800 rounded-full font-semibold hover:bg-slate-800 hover:text-white transition-all text-sm tracking-wide">
             {language === 'nl' ? 'ALLE BEHANDELINGEN' : 'ALL TREATMENTS'}
           </button>
