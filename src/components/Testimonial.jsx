@@ -81,7 +81,7 @@ const TestimonialSlider = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 flex items-center justify-center p-8">
+    <div className="min-h-screen bg-gradient-to-br bg-[#f2fafb]  flex items-center justify-center p-8">
       <div className="w-full max-w-7xl" id="testimonials">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">
           {/* Left Content */}

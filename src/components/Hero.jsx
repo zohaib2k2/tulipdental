@@ -58,7 +58,7 @@ description2: "We are committed to continuity of care by assigning you a dedicat
   };
   return (
     <>
-    <div className="relative bg-gradient-to-br pt-16 mb-5 pb-1 bg-[#fffdf2]  overflow-hidden pb-30">
+    <div className="relative bg-gradient-to-br pt-16  pb-1 bg-[#edfdfb]  overflow-hidden pb-30">
         <div className="max-w-7xl mx-auto px-6 py-16">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-col-2  gap-24 items-center">
             {/* Left Content */}
@@ -143,9 +143,9 @@ description2: "We are committed to continuity of care by assigning you a dedicat
         
 
          {/* Bottom Feature Bar */}
-        <div className="mb-6 sticky bg-[#f7f7e8]">
-          <div className="mx-auto pr-20 bg-[#fffef1]">
-            <div className="bg-slate-900 text-white rounded-tr-3xl rounded-br-3xl md:rounded-tr-full md:rounded-br-full shadow-xl px-2 py-2 text-xs">
+        <div className="sticky bg-[#edfdfb]">
+          <div className="mx-auto pr-20 bg-[#edfdfb]">
+            <div className="bg-[#35737e] text-white rounded-tr-3xl rounded-br-3xl md:rounded-tr-full md:rounded-br-full shadow-xl px-2 py-2 text-xs">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {/* Feature 1 */}
                 <div className="flex items-center gap-4">

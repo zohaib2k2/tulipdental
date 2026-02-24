@@ -74,7 +74,7 @@ useEffect(() => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-[#FFFEF6]">
           <div className="flex items-center justify-between h-16">
             <div className=" flex items-center gap-2">
-              <img src="/navbar_logo2.png" alt="HealthCare Logo" className="h-16 w-54" />
+              <img src="/LOGO-De-witte-tulp-dental-BV-2.png" alt="HealthCare Logo" className="h-16 w-54" />
               {/* <h1 className="text-2xl font-bold text-blue-600">Bergschenhoek Dental </h1> */}
             </div>
             

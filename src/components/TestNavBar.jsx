@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Phone, MapPin, Mail, Clock, Menu, X } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
-import navbarlogo from '../../public/reactangle_tranparent_logo_tulip.svg';
+import navbarlogo from '../../public/logo-de-witte-tulip-transparent.png';
 import {scrollToSection} from '../utils/navscroll.js'
 
 export default function TestNavBar() {
@@ -75,7 +75,7 @@ export default function TestNavBar() {
   return (
     <div className="bg-gray-50">
       <nav
-        className={`fixed top-0 left-0 right-0 bg-[#FFFEF6] shadow-lg z-50 transition-transform duration-300 ${
+        className={`fixed top-0 left-0 right-0 bg-[#f2fafb] shadow-lg z-50 transition-transform duration-300 ${
           isVisible ? 'translate-y-0' : '-translate-y-full'
         }`}
       >
@@ -104,11 +104,11 @@ export default function TestNavBar() {
         </div>
         
         {/* Main Navigation */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-[#FFFEF6]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-[#f4fcfc]">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center gap-2">
-              <div className="w-full h-10 bg-[#FFFEF6] rounded flex items-center justify-center text-white font-bold text-sm">
-                <img src={navbarlogo} alt="HealthCare Logo" className="h-16 w-60"  style={{ background: 'inherit' }} />
+              <div className="w-full h-10 bg-[#f3fafb] rounded flex items-center justify-center text-white font-bold text-sm">
+                <img src={navbarlogo} alt="HealthCare Logo" className="h-16 w-50"  style={{ background: 'inherit' }} />
               </div>
             </div>
             
@@ -183,7 +183,7 @@ export default function TestNavBar() {
         
         {/* Mobile Menu Dropdown */}
         <div
-          className={`md:hidden bg-[#FFFEF6] overflow-hidden transition-all duration-300 ease-in-out ${
+          className={`md:hidden bg-[#eefafe] overflow-hidden transition-all duration-300 ease-in-out ${
             isOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
           }`}
         >

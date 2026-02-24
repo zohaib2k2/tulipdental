@@ -7,7 +7,9 @@ export default {
   theme: {
     extend: {
       colors: {
-        'my-off-white': 'rgb(255, 254, 246)',
+        'my-off-white': 'rgb(231, 254, 255)',
+        'tulip-background': 'rgb(231,254,255)',
+        'tulip-foreground': 'rgb(82,178,195)'
       },
     },
   },

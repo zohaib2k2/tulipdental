@@ -22,8 +22,8 @@ const About = () => {
 
   return (
     <>
-      <div className="bg-[#fffef1] flex items-center justify-center" id="about">
-        <div className="max-w-7xl w-full grid md:grid-cols-2 gap-40 items-center md-20 pb-7">
+      <div className="bg-[#f2fafb] flex items-center justify-center" id="about">
+        <div className="max-w-7xl mt-4 w-full grid md:grid-cols-2 gap-40 items-center md-20 pb-7">
           {/* Left Side - Image */}
           <div className="relative m-4 md:m-0">
             <div className="rounded-3xl overflow-hidden shadow-2xl border-4 border-zinc-700 shadow-2xl">

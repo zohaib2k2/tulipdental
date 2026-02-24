@@ -9,6 +9,8 @@ import whitteningImage from '../../public/services_images/teeth_whitening.png';
 import dentist4Image from '../../public/clinic_images/dentist_4.jpg';
 import { useLanguage } from '../context/LanguageContext';
 
+
+
 const Treatment = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlay, setIsAutoPlay] = useState(true);
@@ -118,7 +120,7 @@ const Treatment = () => {
     }
   };
   return (
-    <div className="min-h-screen bg-white flex items-center justify-center p-3 md:p-8" id="treatments">
+    <div className="min-h-screen bg-[#f2fafb] flex items-center justify-center p-3 md:p-8" id="treatments">
       <div className="w-full max-w-7xl">
         {/* Header Section */}
         <div className="mb-12">

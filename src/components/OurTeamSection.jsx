@@ -31,7 +31,7 @@ const OurTeamSection = () => {
 
   const { language } = useLanguage();
   return (
-    <div className="min-h-screen bg-white flex items-center justify-center p-8" id="ourteam">
+    <div className="min-h-screen bg-[#f2fafb] flex items-center justify-center p-8" id="ourteam">
       <div className="w-full max-w-7xl">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           {/* Left Side - Team Photos */}
