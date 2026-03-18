@@ -120,7 +120,7 @@ const Treatment = () => {
     }
   };
   return (
-    <div className="min-h-screen bg-[#f2fafb] flex items-center justify-center p-3 md:p-8" id="treatments">
+    <div className="min-h-screen bg-[#e5f8fb] flex items-center justify-center p-3 md:p-8" id="treatments">
       <div className="w-full max-w-7xl">
         {/* Header Section */}
         <div className="mb-12">
